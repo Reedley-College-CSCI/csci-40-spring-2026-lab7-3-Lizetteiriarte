@@ -1,10 +1,13 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-//Lizette Iriarte.
+//Lizette Iriarte
 // TODO: Step 1 - Define the struct TemperatureRecord
 // It should contain two integer fields: day and temperature.
-
+struct TemperatureRecord {
+    int day;
+    int temperature;
+};
 // Constants
 const int MAX_DAYS = 31;
 
@@ -21,7 +24,7 @@ int main() {
     int size = 0;  // Actual number of records read
 
     // TODO: Step 3 - Call readTemperatures() to load data from file
-    .
+    
     // TODO: Step 4 - Print the temperatures
 
     // TODO: Step 5 - Compute and display min, max, and average temperature
