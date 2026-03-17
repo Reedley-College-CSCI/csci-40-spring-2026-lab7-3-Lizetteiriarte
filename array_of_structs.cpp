@@ -19,13 +19,13 @@ TemperatureRecord findMax(const ???);
 double findAverage(const ???);
 
 int main() {
-    // TODO: Step 2 - Declare an array of TemperatureRecord structs (MAX_DAYS size)
+    TemperatureRecord records[MAX_DAYS]; // TODO: Step 2 - Declare an array of TemperatureRecord structs (MAX_DAYS size)
     
     int size = 0;  // Actual number of records read
 
-    // TODO: Step 3 - Call readTemperatures() to load data from file
+    readTemperatures(records, size);// TODO: Step 3 - Call readTemperatures() to load data from file
     
-    // TODO: Step 4 - Print the temperatures
+    printTemperatures(records, size); // TODO: Step 4 - Print the temperatures
 
     // TODO: Step 5 - Compute and display min, max, and average temperature
 
