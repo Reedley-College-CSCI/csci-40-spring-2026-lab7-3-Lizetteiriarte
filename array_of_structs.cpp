@@ -21,7 +21,7 @@ int main() {
     int size = 0;  // Actual number of records read
 
     // TODO: Step 3 - Call readTemperatures() to load data from file
-
+    .
     // TODO: Step 4 - Print the temperatures
 
     // TODO: Step 5 - Compute and display min, max, and average temperature
