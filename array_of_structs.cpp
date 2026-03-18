@@ -22,11 +22,6 @@ int main() {
     TemperatureRecord records[MAX_DAYS]; // TODO: Step 2 - Declare an array of TemperatureRecord structs (MAX_DAYS size)
     
     int size = 0;  // Actual number of records read
-    void readTemperatures(TemperatureRecord records[], int& size); // TODO: Fix the parameters
-    void printTemperatures(const TemperatureRecord records[], int size);
-    TemperatureRecord findMin(const TemperatureRecord records[], int size);
-    TemperatureRecord findMax(const TemperatureRecord records[], int size);
-    double findAverage(const TemperatureRecord records[], int size);
     readTemperatures(records, size);// TODO: Step 3 - Call readTemperatures() to load data from file
     
     printTemperatures(records, size); // TODO: Step 4 - Print the temperatures
@@ -42,17 +37,58 @@ int main() {
     return 0;
 }
 
-// TODO: Step 6 - Implement readTemperatures()
+void readTemperatures(TemperatureRecord records[], int& size) {
+    ifstream file("temps.txt");
+
+    size = 0;
+    while (file >> records[size].day >> records[size].temperature) {
+        size++;
+    }
+    file.close();
+}// TODO: Step 6 - Implement readTemperatures()
 // Read from "temps.txt" and store data in the array
 
-// TODO: Step 7 - Implement printTemperatures()
+void printTemperatures(const TemperatureRecord records[], int size) {
+    cout << "Day\tTemperature\n";
+    for (int i = 0; i < size; i++) {
+        cout << records[i].day << "\t" << records[i].temperature << endl;
+    }
+}// TODO: Step 7 - Implement printTemperatures()
 // Print all stored temperatures in a formatted table
 
-// TODO: Step 8 - Implement findMin()
+TemperatureRecord findMin(const TemperatureRecord records[], int size) {
+    TemperatureRecord min = records[0];
+    for (int i = 1; i < size; i++) {
+        if (records[i].temperature < min.temperature) {
+            min = records[i];
+        }
+    }
+    return min;
+}
+
+    // TODO: Step 8 - Implement findMin()
 // Return the TemperatureRecord with the lowest temperature
+
+TemperatureRecord findMax(const TemperatureRecord records[], int size){
+TemperatureRecord max = records[0];
+for (int i = 1; i < size; i++) {
+    if (records[i].temperature > max.temperature) {
+        max = records[i];
+    }
+}
+return max;
+}
+
 
 // TODO: Step 9 - Implement findMax()
 // Return the TemperatureRecord with the highest temperature
 
+double findAverage(const TemperatureRecord records[], int size){
+int sum = 0;
+for (int i = 0; i < size; i++) {
+    sum += records[i].temperature;
+}
+return (double)sum / size;
+}
 // TODO: Step 10 - Implement findAverage()
 // Compute and return the average temperature
