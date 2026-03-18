@@ -39,7 +39,11 @@ int main() {
 
 void readTemperatures(TemperatureRecord records[], int& size) {
     ifstream file("temps.txt");
-
+    if (!file) {
+        cout << "File did not open." << endl;
+        size = 0;
+        return;
+    }
     size = 0;
     while (file >> records[size].day >> records[size].temperature) {
         size++;
